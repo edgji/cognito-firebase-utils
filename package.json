@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "eslint": "^3.5.0",
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^2.0.1",

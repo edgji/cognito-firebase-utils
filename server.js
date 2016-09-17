@@ -1,5 +1,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
+var cors = require('cors')
 var log4js = require('log4js')
 var logger = log4js.getLogger('server')
 var auth = require('./auth')
@@ -9,6 +10,7 @@ var app = express()
 app.set('port', process.env.PORT || 3000)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
 
 // function ensureAuthenticated (req, res, next) {
 //   if (!req.headers.authorization) {
