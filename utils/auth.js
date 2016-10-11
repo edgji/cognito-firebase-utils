@@ -1,8 +1,11 @@
 var firebase = require('firebase')
 var AWS = require('aws-sdk')
-var config = require('./config')
 
-module.exports = (function () {
+/**
+ * @param config {identityPoolId, developerProviderName, serviceAccountCredentialsPath, databaseURL}
+ * @returns {{verifyFirebaseToken: verifyFirebaseToken, getToken: getToken}}
+ */
+module.exports = function (config) {
   firebase.initializeApp({
     serviceAccount: config.serviceAccountCredentialsPath,
     databaseURL: config.databaseURL
@@ -34,4 +37,4 @@ module.exports = (function () {
     verifyFirebaseToken: verifyFirebaseToken,
     getToken: getToken
   }
-}())
+}

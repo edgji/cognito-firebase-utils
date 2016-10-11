@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var cors = require('cors')
 var log4js = require('log4js')
 var logger = log4js.getLogger('server')
-var auth = require('./auth')
+var middleware = require('./utils/middleware')(require('./config'))
 
 var app = express()
 
@@ -28,21 +28,7 @@ app.use(cors())
 //   })
 // }
 
-app.post('/token', function (req, res) {
-  auth.verifyFirebaseToken(req.body.idToken, function (err, decodedToken) {
-    if (err) {
-      return res.status(401).send(err)
-    }
-
-    auth.getToken(decodedToken.uid, function (err, data) {
-      if (err) {
-        return res.status(401).send(err)
-      }
-
-      res.send(data)
-    })
-  })
-})
+app.post('/token', middleware)
 
 app.listen(app.get('port'), function () {
   logger.info('express server listening on port ' + app.get('port'))

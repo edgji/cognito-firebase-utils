@@ -1,1 +1,3 @@
-# cognito-firebase-lambda
+# cognito-firebase-utils
+A few node modules with the aim to make it easy to connect Firebase auth to AWS Cognito. While Firebase auth tokens conform to OIDC specs, Firebase is still working on fully implementing OIDC including the /.well-known path that is required by AWS for an OpenId provider.
+With the included server script set up, submitted Firebase auth token can be exchanged for Cognito tokens to be used as credentials when interacting with AWS services through the api.

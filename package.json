@@ -1,6 +1,10 @@
 {
-  "name": "cognito-firebase-lambda",
-  "version": "0.0.1",
+  "name": "cognito-firebase-utils",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "utils"
+  ],
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
